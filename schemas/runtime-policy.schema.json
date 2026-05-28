@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://ploinky.local/local-llm-architectures/runtime-policy.schema.json",
+    "title": "Runtime policy recommendation",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "platform": { "enum": ["linux/amd64", "linux/arm64"] },
+        "resources": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "memory": { "type": "string", "pattern": "^[0-9]+[bkmgtBKMGT]?$" },
+                "cpus": { "type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$" },
+                "pidsLimit": { "type": "integer", "minimum": 1, "maximum": 1048576 },
+                "shmSize": { "type": "string", "pattern": "^[0-9]+[bkmgtBKMGT]?$" },
+                "ulimits": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "memlock": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": ["soft", "hard"],
+                            "properties": {
+                                "soft": { "type": "integer", "minimum": -1 },
+                                "hard": { "type": "integer", "minimum": -1 }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "devices": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["type"],
+                "properties": {
+                    "type": { "enum": ["cdi", "hostDevice"] },
+                    "value": { "type": "string", "minLength": 1, "maxLength": 200 },
+                    "hostPath": { "type": "string", "pattern": "^/dev/[A-Za-z0-9._/-]+$" }
+                }
+            }
+        },
+        "securityOpt": {
+            "type": "array",
+            "items": { "enum": ["label=disable"] }
+        },
+        "ipc": { "enum": ["default", "host"] },
+        "gpus": {
+            "type": "string",
+            "pattern": "^all$|^device=[A-Za-z0-9._,-]+$"
+        }
+    }
+}

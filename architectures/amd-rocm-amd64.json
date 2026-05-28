@@ -1,0 +1,28 @@
+{
+    "id": "amd-rocm-amd64",
+    "status": "stable",
+    "platform": "linux/amd64",
+    "accelerator": { "family": "amd-rocm" },
+    "match": { "requiredProbes": ["kfdDevice", "driDevice"] },
+    "image": "amd-rocm-amd64",
+    "runtimePolicy": {
+        "platform": "linux/amd64",
+        "resources": {
+            "memory": "8g",
+            "cpus": "4",
+            "pidsLimit": 1024,
+            "shmSize": "1g"
+        },
+        "devices": [
+            { "type": "hostDevice", "hostPath": "/dev/kfd" },
+            { "type": "hostDevice", "hostPath": "/dev/dri" }
+        ],
+        "securityOpt": ["label=disable"],
+        "ipc": "host"
+    },
+    "engineDefaults": {
+        "enginePort": 8080,
+        "runtimePort": 9000
+    },
+    "fallbackPriority": 30
+}

@@ -1,0 +1,27 @@
+{
+    "schemaVersion": 1,
+    "catalogId": "local-llm-architectures/default",
+    "updatedAt": "2026-05-28",
+    "defaultFallback": "cpu-amd64",
+    "architectures": [
+        { "id": "cpu-amd64", "path": "architectures/cpu-amd64.json" },
+        { "id": "cpu-arm64", "path": "architectures/cpu-arm64.json" },
+        { "id": "nvidia-cuda-amd64", "path": "architectures/nvidia-cuda-amd64.json" },
+        { "id": "nvidia-cuda-cdi-amd64", "path": "architectures/nvidia-cuda-cdi-amd64.json" },
+        { "id": "nvidia-cuda-arm64", "path": "architectures/nvidia-cuda-arm64.json" },
+        { "id": "amd-rocm-amd64", "path": "architectures/amd-rocm-amd64.json" },
+        { "id": "vulkan-amd64", "path": "architectures/vulkan-amd64.json" },
+        { "id": "vulkan-arm64", "path": "architectures/vulkan-arm64.json" },
+        { "id": "intel-openvino-amd64", "path": "architectures/intel-openvino-amd64.json" }
+    ],
+    "images": [
+        { "id": "cpu-amd64", "path": "images/cpu-amd64.json" },
+        { "id": "cpu-arm64", "path": "images/cpu-arm64.json" },
+        { "id": "nvidia-cuda-amd64", "path": "images/nvidia-cuda-amd64.json" },
+        { "id": "nvidia-cuda-arm64", "path": "images/nvidia-cuda-arm64.json" },
+        { "id": "amd-rocm-amd64", "path": "images/amd-rocm-amd64.json" },
+        { "id": "vulkan-amd64", "path": "images/vulkan-amd64.json" },
+        { "id": "vulkan-arm64", "path": "images/vulkan-arm64.json" },
+        { "id": "intel-openvino-amd64", "path": "images/intel-openvino-amd64.json" }
+    ]
+}

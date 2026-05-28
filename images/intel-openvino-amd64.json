@@ -1,0 +1,9 @@
+{
+    "id": "intel-openvino-amd64",
+    "ref": "ghcr.io/ploinky/llm-runtime-intel-openvino-amd64:dev",
+    "platform": "linux/amd64",
+    "build": {
+        "context": "build/families/intel-openvino",
+        "dockerfile": "Dockerfile.amd64"
+    }
+}

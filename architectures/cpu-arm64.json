@@ -1,0 +1,23 @@
+{
+    "id": "cpu-arm64",
+    "status": "stable",
+    "platform": "linux/arm64",
+    "accelerator": { "family": "cpu" },
+    "match": { "requiredProbes": [] },
+    "image": "cpu-arm64",
+    "runtimePolicy": {
+        "platform": "linux/arm64",
+        "resources": {
+            "memory": "4g",
+            "cpus": "4",
+            "pidsLimit": 1024,
+            "shmSize": "256m"
+        },
+        "ipc": "default"
+    },
+    "engineDefaults": {
+        "enginePort": 8080,
+        "runtimePort": 9000
+    },
+    "fallbackPriority": 110
+}

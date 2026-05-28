@@ -1,0 +1,15 @@
+# Placeholder Dockerfile for the CPU amd64 LLM runtime image.
+#
+# This file documents the build contract. The actual image build pipeline
+# is outside Ploinky and outside the scope of catalog selection. Ploinky
+# loads only the metadata referenced from architectures/cpu-amd64.json and
+# images/cpu-amd64.json — never this Dockerfile.
+FROM debian:12-slim
+ARG TARGETPLATFORM=linux/amd64
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+        ca-certificates curl jq nodejs npm python3 python3-venv build-essential \
+ && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /opt/ploinky/launchers /models/hf-cache /models/artifacts /models/derived /runtime
+ENTRYPOINT ["/bin/sh", "-c", "tail -f /dev/null"]

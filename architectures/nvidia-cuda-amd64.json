@@ -1,0 +1,30 @@
+{
+    "id": "nvidia-cuda-amd64",
+    "status": "stable",
+    "platform": "linux/amd64",
+    "accelerator": { "family": "nvidia-cuda" },
+    "match": {
+        "requiredProbes": ["nvidiaSmi"],
+        "containerRuntimes": ["docker"]
+    },
+    "image": "nvidia-cuda-amd64",
+    "runtimePolicy": {
+        "platform": "linux/amd64",
+        "resources": {
+            "memory": "8g",
+            "cpus": "4",
+            "pidsLimit": 1024,
+            "shmSize": "1g",
+            "ulimits": {
+                "memlock": { "soft": -1, "hard": -1 }
+            }
+        },
+        "gpus": "all",
+        "ipc": "host"
+    },
+    "engineDefaults": {
+        "enginePort": 8080,
+        "runtimePort": 9000
+    },
+    "fallbackPriority": 10
+}

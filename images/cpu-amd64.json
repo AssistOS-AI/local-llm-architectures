@@ -1,0 +1,9 @@
+{
+    "id": "cpu-amd64",
+    "ref": "ghcr.io/ploinky/llm-runtime-cpu-amd64:dev",
+    "platform": "linux/amd64",
+    "build": {
+        "context": "build/families/cpu",
+        "dockerfile": "Dockerfile.amd64"
+    }
+}

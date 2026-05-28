@@ -1,0 +1,9 @@
+{
+    "id": "nvidia-cuda-arm64",
+    "ref": "ghcr.io/ploinky/llm-runtime-nvidia-cuda-arm64:dev",
+    "platform": "linux/arm64",
+    "build": {
+        "context": "build/families/nvidia-cuda",
+        "dockerfile": "Dockerfile.arm64"
+    }
+}

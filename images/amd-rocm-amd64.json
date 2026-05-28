@@ -1,0 +1,9 @@
+{
+    "id": "amd-rocm-amd64",
+    "ref": "ghcr.io/ploinky/llm-runtime-amd-rocm-amd64:dev",
+    "platform": "linux/amd64",
+    "build": {
+        "context": "build/families/amd-rocm",
+        "dockerfile": "Dockerfile.amd64"
+    }
+}

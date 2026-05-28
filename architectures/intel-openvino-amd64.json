@@ -1,0 +1,26 @@
+{
+    "id": "intel-openvino-amd64",
+    "status": "stable",
+    "platform": "linux/amd64",
+    "accelerator": { "family": "intel-openvino" },
+    "match": { "requiredProbes": ["driDevice"] },
+    "image": "intel-openvino-amd64",
+    "runtimePolicy": {
+        "platform": "linux/amd64",
+        "resources": {
+            "memory": "6g",
+            "cpus": "4",
+            "pidsLimit": 1024,
+            "shmSize": "512m"
+        },
+        "devices": [
+            { "type": "hostDevice", "hostPath": "/dev/dri" }
+        ],
+        "ipc": "default"
+    },
+    "engineDefaults": {
+        "enginePort": 8080,
+        "runtimePort": 9000
+    },
+    "fallbackPriority": 60
+}
