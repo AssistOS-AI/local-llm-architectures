@@ -6,7 +6,11 @@
     "additionalProperties": false,
     "required": ["id", "status", "platform", "accelerator", "image"],
     "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$" },
+        "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$",
+            "description": "Architecture id passed through PLOINKY_LLM_ARCHITECTURE_ID. Recommended shape: <accelerator-family>[-runtime-or-backend-variant]-<cpu-architecture>, for example cpu-amd64 or nvidia-cuda-cdi-amd64."
+        },
         "status": { "enum": ["stable", "experimental"] },
         "platform": { "enum": ["linux/amd64", "linux/arm64"] },
         "accelerator": {
