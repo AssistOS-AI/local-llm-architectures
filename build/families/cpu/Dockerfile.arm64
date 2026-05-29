@@ -5,7 +5,7 @@ ARG TARGETPLATFORM=linux/arm64
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
-        ca-certificates curl jq nodejs npm python3 python3-venv build-essential \
+        bash ca-certificates curl jq nodejs npm python3 python3-venv build-essential \
  && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /opt/ploinky/launchers /models/hf-cache /models/artifacts /models/derived /runtime
 ENTRYPOINT ["/bin/sh", "-c", "tail -f /dev/null"]
